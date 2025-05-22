@@ -1,4 +1,4 @@
-import CardsGrid from "@/shared/ui/CardsGrid";
+import CardsGrid from "@/common/ui/CardsGrid";
 
 const dummyData = [
   {

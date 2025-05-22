@@ -1,5 +1,5 @@
-import Card from "@/shared/ui/Card";
-import MoreCard from "@/shared/ui/MoreCard";
+import Card from "@/common/ui/Card";
+import MoreCard from "@/common/ui/MoreCard";
 
 interface CardData {
   id: number;

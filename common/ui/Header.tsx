@@ -1,4 +1,10 @@
+"use client";
+
+import LoginModal from "../domains/LoginModal";
+import LayoutContainer from "./LayoutContainer";
+
 export default function Header() {
+  const { loginModal } = LayoutContainer.useContainer();
   return (
     <header className="w-full h-18 flex items-center px-6 border-b border-[#EBEBF0] bg-white">
       <div className="font-bold text-2xl text-[#1A1A33] mr-8">
@@ -24,9 +30,13 @@ export default function Header() {
           />
         </div>
       </div>
-      <button className="ml-8 bg-[#4A66FA] text-white rounded-md px-6 py-2 font-semibold">
+      <button
+        className="ml-8 bg-[#4A66FA] text-white rounded-md px-6 py-2 font-semibold cursor-pointer"
+        onClick={loginModal.open}
+      >
         Login
       </button>
+      <LoginModal />
     </header>
   );
 }

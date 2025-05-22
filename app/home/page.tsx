@@ -1,5 +1,5 @@
 import MainContent from "@/app/home/components/MainContent";
-import Header from "@/shared/ui/Header";
+import Header from "@/common/ui/Header";
 
 export default function HomePage() {
   return (

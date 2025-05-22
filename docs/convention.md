@@ -18,6 +18,7 @@
 LinkInNest is based on Next.js App Router and uses a page-isolated structure with domain-centric reusable components.
 
 ### Core Principles
+
 - **Page Isolation**: Each page has an independent folder structure
 - **No Props Drilling**: All components directly call Containers
 - **Domain-Centric Separation**: Reusable components separated by UI/domain
@@ -41,7 +42,7 @@ app/                          # Next.js App Router pages
 │   └── logics/
 └── ...
 
-shared/                       # Reusable components/hooks
+common/                       # Reusable components/hooks
 ├── ui/                      # Generic UI components/hooks
 │   ├── Button.tsx
 │   ├── Modal.tsx
