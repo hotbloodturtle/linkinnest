@@ -1,5 +1,5 @@
-import HeroSection from "@/shared/ui/HeroSection";
-import SampleContent from "@/shared/ui/SampleContent";
+import HeroSection from "@/app/home/components/HeroSection";
+import SampleContent from "@/app/home/components/SampleContent";
 
 export default function MainContent() {
   return (

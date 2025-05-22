@@ -6,13 +6,13 @@ export default function Header() {
       </div>
       <nav className="flex gap-6 text-[#4D4D66] font-semibold">
         <a href="#" className="text-[#4D4D66]">
-          홈
+          Home
         </a>
         <a href="#" className="text-[#808099] font-medium">
-          탐색
+          Explore
         </a>
         <a href="#" className="text-[#808099] font-medium">
-          인기
+          Popular
         </a>
       </nav>
       <div className="flex-1 flex justify-center">
@@ -20,12 +20,12 @@ export default function Header() {
           <span className="text-[#80808C] mr-2">🔍</span>
           <input
             className="bg-transparent outline-none text-sm flex-1"
-            placeholder="폴더, 링크 검색..."
+            placeholder="Search folders, links..."
           />
         </div>
       </div>
       <button className="ml-8 bg-[#4A66FA] text-white rounded-md px-6 py-2 font-semibold">
-        로그인
+        Login
       </button>
     </header>
   );

@@ -5,7 +5,7 @@ type CardProps = {
   author: string;
   likes: number;
   comments?: number;
-  type?: string; // '로드맵' 등
+  type?: string; // e.g. 'Roadmap'
   itemsCount?: number;
   badgeColor?: string;
   bgColor?: string;
@@ -18,7 +18,7 @@ export default function Card({
   author,
   likes,
   comments = 0,
-  type = "로드맵",
+  type = "Roadmap",
   itemsCount = 0,
   badgeColor = "bg-[#4D99F2]",
   bgColor = "bg-[#FAFCFF]",
@@ -46,8 +46,8 @@ export default function Card({
           by {author} • 👍 {likes} • 💬 {comments}
         </div>
         <div className="text-xs text-[#808099]">
-          {type === "로드맵" ? "📂" : "🔗"} {itemsCount}개{" "}
-          {type === "로드맵" ? "아이템" : "링크"}
+          {type === "Roadmap" ? "📂" : "🔗"} {itemsCount}{" "}
+          {type === "Roadmap" ? "items" : "links"}
         </div>
       </div>
     </div>
