@@ -1,267 +1,267 @@
 # LinkInNest PRD (Product Requirements Document)
 
-## 1. 프로덕트 개요
+## 1. Product Overview
 
-### 1.1 비전
-지식과 정보를 체계적으로 정리하고 공유할 수 있는 소셜 북마크 플랫폼
+### 1.1 Vision
+A social bookmark platform for systematically organizing and sharing knowledge and information
 
-### 1.2 미션
-개인의 학습 여정과 관심사를 구조화된 로드맵으로 만들어 다른 사람들과 공유하고, 집단 지성을 통해 더 나은 학습 경험을 제공한다.
+### 1.2 Mission
+Transform personal learning journeys and interests into structured roadmaps to share with others, providing better learning experiences through collective intelligence.
 
-### 1.3 타겟 유저
-- **Primary**: 체계적인 학습을 선호하는 자기계발 지향 사용자 (20-40대)
-- **Secondary**: 전문 지식을 공유하고자 하는 교육자, 멘토, 전문가
-- **Tertiary**: 특정 분야의 정보를 효율적으로 찾고자 하는 일반 사용자
+### 1.3 Target Users
+- **Primary**: Self-improvement oriented users who prefer systematic learning (20-40 years old)
+- **Secondary**: Educators, mentors, and experts who want to share professional knowledge
+- **Tertiary**: General users seeking efficient access to information in specific fields
 
-## 2. 핵심 기능
+## 2. Core Features
 
-### 2.1 개인 북마크 관리
-- **링크 수집**: 웹 URL, 동영상, 문서 등 다양한 형태의 콘텐츠 저장
-- **폴더 구조**: 계층적 폴더 구조로 체계적 정리
-- **드래그 앤 드롭**: dnd-kit을 활용한 직관적인 정렬 및 구조 변경
-- **태그 시스템**: 다중 태그 지정으로 교차 분류
-- **공개/비공개**: 개별 링크/폴더별 공개 여부 설정
+### 2.1 Personal Bookmark Management
+- **Link Collection**: Store various types of content including web URLs, videos, documents
+- **Folder Structure**: Systematic organization through hierarchical folder structure
+- **Drag & Drop**: Intuitive sorting and structure modification using dnd-kit
+- **Tag System**: Cross-classification through multiple tag assignment
+- **Public/Private**: Individual privacy settings for links and folders
 
-### 2.2 로드맵 기능
-- **단계별 구성**: 폴더와 링크의 조합으로 학습/경험 순서 구성
-- **상세 설명**: 각 단계별 목표와 설명
-- **진행률 추적**: 개인별 완료 상태 체크
-- **선수 조건**: 단계간 의존성 표시
+### 2.2 Roadmap Features
+- **Step-by-step Structure**: Compose learning/experience sequences with folders and links
+- **Detailed Descriptions**: Goals and descriptions for each step
+- **Progress Tracking**: Individual completion status checking
+- **Prerequisites**: Display dependencies between steps
 
-### 2.3 소셜 기능
-- **공개 피드**: 공개된 폴더/링크 탐색
-- **좋아요 시스템**: 유용한 콘텐츠에 대한 평가
-- **팔로우**: 신뢰하는 큐레이터 구독
-- **댓글/리뷰**: 경험 공유 및 피드백
-- **공유**: SNS 연동 및 직접 링크 공유
+### 2.3 Social Features
+- **Public Feed**: Browse public folders and links
+- **Like System**: Evaluate useful content
+- **Follow**: Subscribe to trusted curators
+- **Comments/Reviews**: Share experiences and feedback
+- **Sharing**: SNS integration and direct link sharing
 
-### 2.4 탐색 및 발견
-- **인기 콘텐츠**: 좋아요, 조회수 기반 트렌딩
-- **추천 시스템**: 개인 관심사 기반 맞춤 추천
-- **검색**: 제목, 태그, 설명 기반 통합 검색
-- **카테고리**: 학습, 취미, 여행, 요리 등 주제별 분류
+### 2.4 Discovery & Exploration
+- **Popular Content**: Trending based on likes and views
+- **Recommendation System**: Personalized recommendations based on interests
+- **Search**: Integrated search based on titles, tags, and descriptions
+- **Categories**: Topic-based classification (learning, hobbies, travel, cooking, etc.)
 
-### 2.5 다국어 UI 지원
-- **인터페이스 언어**: 메뉴, 버튼, 안내 메시지 등 UI 요소만 다국어
-- **사용자 콘텐츠**: 제목, 설명, 댓글 등은 작성자의 원본 언어 그대로 표시
-- **언어 감지**: 콘텐츠 언어 자동 감지로 적절한 폰트/레이아웃 적용
-- **언어별 정렬**: 한국어는 가나다순, 영어는 ABC순 등
+### 2.5 Multilingual UI Support
+- **Interface Language**: Multilingual support for UI elements like menus, buttons, and messages only
+- **User Content**: Titles, descriptions, comments displayed in original language
+- **Language Detection**: Auto-detect content language for appropriate font/layout
+- **Language-specific Sorting**: Korean alphabetical order, English ABC order, etc.
 
-### 2.7 비회원 접근 정책
-- **자유 조회**: 공개 폴더/로드맵 전체 내용, 검색, 링크 클릭, 통계 확인
-- **회원 전용**: 좋아요/댓글/팔로우, 개인 콘텐츠 관리, 진행률 추적
-- **회원가입 유도**: 상호작용 시도시 자연스러운 로그인 안내
+### 2.7 Guest Access Policy
+- **Free Browsing**: Full access to public folders/roadmaps, search, link clicks, statistics
+- **Member Only**: Likes/comments/follows, personal content management, progress tracking
+- **Registration Incentive**: Natural login guidance when attempting interactions
 
-#### 비회원 가능 기능
-- 공개 폴더/로드맵 전체 내용 열람
-- 공개 링크 클릭 및 이동
-- 검색 및 탐색 (무제한)
-- 좋아요/댓글/팔로우 수 확인
-- 사용자 프로필 조회
-- 태그별 필터링
+#### Guest Available Features
+- View full content of public folders/roadmaps
+- Click and navigate public links
+- Search and browse (unlimited)
+- View like/comment/follow counts
+- View user profiles
+- Filter by tags
 
-#### 회원 전용 기능
-- 좋아요 버튼 클릭
-- 댓글 작성/수정/삭제
-- 팔로우 기능
-- 개인 폴더/링크 생성/관리
-- 진행률 추적 (체크박스)
-- 비공개 콘텐츠 접근
+#### Member Only Features
+- Click like buttons
+- Create/edit/delete comments
+- Follow functionality
+- Create/manage personal folders/links
+- Progress tracking (checkboxes)
+- Access private content
 
-#### 회원가입 유도 전략
-- **좋아요 시도**: "이 로드맵이 마음에 드시나요? 로그인해서 좋아요를 눌러보세요!"
-- **댓글 시도**: "다른 사람들과 소통하려면 로그인이 필요해요"
-- **진행률 시도**: "내 학습 진도를 기록하려면 회원가입하세요"
-- **폴더 생성**: "나만의 지식 저장소를 만들어보세요"
+#### Registration Incentive Strategy
+- **Like Attempt**: "Do you like this roadmap? Login to give it a like!"
+- **Comment Attempt**: "Login required to communicate with others"
+- **Progress Attempt**: "Sign up to record your learning progress"
+- **Folder Creation**: "Create your own knowledge repository"
 
-### 2.8 모바일 특화 기능
-- **PWA**: 앱스토어 없이 설치 가능한 웹앱
-- **오프라인 모드**: 즐겨찾기한 로드맵 오프라인 열람
-- **모바일 제스처**: 스와이프로 폴더 탐색, 롱프레스로 컨텍스트 메뉴
-- **터치 최적화**: 드래그앤드롭, 확대/축소 등 터치 인터페이스 최적화
+### 2.8 Mobile-Specific Features
+- **PWA**: Installable web app without app store
+- **Offline Mode**: Offline viewing of bookmarked roadmaps
+- **Mobile Gestures**: Swipe folder navigation, long-press context menus
+- **Touch Optimization**: Drag-and-drop, zoom optimized for touch interfaces
 
-## 3. 사용자 시나리오
+## 3. User Scenarios
 
-### 3.1 학습자 (민수, 25세, 개발자 지망생)
-1. "풀스택 개발자 로드맵" 폴더 생성
-2. 단계별로 하위 폴더 구성 (HTML/CSS → JavaScript → React → Node.js → 포트폴리오)
-3. 각 단계에 유튜브 강의, 블로그 글, 실습 프로젝트 링크 추가
-4. 진행하면서 개인 메모와 후기 작성
-5. 완성된 로드맵을 공개하여 다른 지망생들과 공유
+### 3.1 Learner (Minsu, 25, Aspiring Developer)
+1. Create "Full-stack Developer Roadmap" folder
+2. Structure sub-folders by steps (HTML/CSS → JavaScript → React → Node.js → Portfolio)
+3. Add YouTube tutorials, blog posts, practice project links to each step
+4. Write personal notes and reviews while progressing
+5. Share completed roadmap publicly with other aspiring developers
 
-### 3.2 전문가 (영희, 35세, UX 디자이너)
-1. "UX 디자인 입문자를 위한 30일 챌린지" 로드맵 생성
-2. 일차별 학습 목표와 실습 과제 구성
-3. 업계 표준 도구, 참고 아티클, 케이스 스터디 링크 정리
-4. 팔로워들에게 주간 피드백 세션 안내
-5. 완주자들의 포트폴리오 피드백 제공
+### 3.2 Expert (Younghee, 35, UX Designer)
+1. Create "30-day UX Design Challenge for Beginners" roadmap
+2. Structure daily learning goals and practice assignments
+3. Organize industry-standard tools, reference articles, case studies
+4. Provide weekly feedback sessions to followers
+5. Give portfolio feedback to challenge completers
 
-### 3.3 취미 탐색자 (철수, 30세, 직장인)
-1. 인기 "기타 독학 로드맵" 발견
-2. 단계별 진행하며 개인 연습 영상 기록
-3. 비슷한 관심사의 사람들과 연결
-4. 자신만의 "직장인 기타 연습법" 변형 로드맵 생성
+### 3.3 Hobbyist (Cheolsu, 30, Office Worker)
+1. Discover popular "Guitar Self-learning Roadmap"
+2. Progress step-by-step while recording personal practice videos
+3. Connect with people with similar interests
+4. Create own "Guitar Practice for Office Workers" variant roadmap
 
-## 4. 기술적 요구사항
+## 4. Technical Requirements
 
-### 4.1 핵심 기술 스택
+### 4.1 Core Technology Stack
 - **Frontend**: React/Next.js + TypeScript
 - **Backend**: Supabase (PostgreSQL + Auth + Storage)
-- **UI Library**: dnd-kit (드래그앤드롭)
+- **UI Library**: dnd-kit (drag-and-drop)
 - **Styling**: Tailwind CSS
-- **다국어**: react-i18next + i18next
-- **상태관리**: unstated-next
-- **모바일**: PWA + 반응형 디자인
+- **Internationalization**: react-i18next + i18next
+- **State Management**: unstated-next
+- **Mobile**: PWA + Responsive Design
 
-### 4.2 데이터베이스 스키마
+### 4.2 Database Schema
 ```sql
--- 사용자 프로필
+-- User profiles
 user_profiles (id, username, avatar_url, bio, created_at)
 
--- 폴더 (로드맵/컬렉션)
+-- Folders (roadmaps/collections)
 folders (id, user_id, title, description, is_public, is_roadmap, created_at, updated_at)
 
--- 링크
+-- Links
 links (id, folder_id, title, url, description, sort_order, created_at)
 
--- 폴더 구조 (중첩 폴더)
+-- Folder structure (nested folders)
 folder_hierarchy (parent_id, child_id, child_type, sort_order)
 
--- 태그
+-- Tags
 tags (id, name, category, color)
 folder_tags (folder_id, tag_id)
 link_tags (link_id, tag_id)
 
--- 소셜 기능
+-- Social features
 likes (user_id, item_type, item_id, created_at)
 follows (follower_id, following_id, created_at)
 comments (id, user_id, item_type, item_id, content, created_at)
 
--- 진행률 추적
+-- Progress tracking
 user_progress (user_id, item_type, item_id, is_completed, completed_at, notes)
 ```
 
-### 4.3 주요 기능별 구현
-- **드래그앤드롭**: @dnd-kit/core, @dnd-kit/sortable 활용
-- **실시간 업데이트**: Supabase Realtime
-- **파일 업로드**: Supabase Storage (썸네일, 프로필 이미지)
-- **검색**: PostgreSQL Full-text Search + 태그 기반 필터링
-- **추천**: 협업 필터링 + 콘텐츠 기반 필터링
-- **인증 및 권한**:
-  - Supabase Auth로 사용자 인증
-  - RLS(Row Level Security)로 데이터 보안
-  - 비회원/회원 권한 세분화
-  - 자연스러운 로그인 유도 UX
-- **다국어 (UI만)**:
-  - 정적 텍스트 번역: react-i18next + JSON 번역 파일
-  - 지원 언어: 한국어, 영어, 일본어, 중국어(간체)
-  - 사용자 콘텐츠는 원본 언어 그대로 표시
-  - RTL 언어 지원: 아랍어 등 (향후 확장)
-- **모바일 최적화**:
-  - PWA (Progressive Web App) 구현
-  - 터치 제스처 지원 (스와이프, 롱프레스)
-  - 모바일 전용 드래그앤드롭 UX
-  - 오프라인 모드 지원 (즐겨찾기한 로드맵)
+### 4.3 Feature Implementation
+- **Drag & Drop**: Utilize @dnd-kit/core, @dnd-kit/sortable
+- **Real-time Updates**: Supabase Realtime
+- **File Upload**: Supabase Storage (thumbnails, profile images)
+- **Search**: PostgreSQL Full-text Search + tag-based filtering
+- **Recommendations**: Collaborative filtering + content-based filtering
+- **Authentication & Authorization**:
+  - User authentication with Supabase Auth
+  - Data security with RLS (Row Level Security)
+  - Granular guest/member permissions
+  - Natural login incentive UX
+- **Internationalization (UI only)**:
+  - Static text translation: react-i18next + JSON translation files
+  - Supported languages: Korean, English, Japanese, Chinese (Simplified)
+  - User content displayed in original language
+  - RTL language support: Arabic, etc. (future expansion)
+- **Mobile Optimization**:
+  - PWA (Progressive Web App) implementation
+  - Touch gesture support (swipe, long-press)
+  - Mobile-specific drag-and-drop UX
+  - Offline mode support (bookmarked roadmaps)
 
-## 5. UI/UX 요구사항
+## 5. UI/UX Requirements
 
-### 5.1 핵심 원칙
-- **직관성**: 드래그앤드롭으로 누구나 쉽게 구조 변경
-- **시각화**: 로드맵의 진행 단계를 명확히 표현
-- **반응형**: 모바일에서도 원활한 탐색 가능
-- **성능**: 대량의 링크도 빠른 로딩
-- **비회원 친화**: 비회원도 충분한 가치를 느끼다가 자연스럽게 회원가입으로 유도
+### 5.1 Core Principles
+- **Intuitiveness**: Easy structure modification through drag-and-drop
+- **Visualization**: Clear representation of roadmap progress stages
+- **Responsiveness**: Smooth navigation on mobile devices
+- **Performance**: Fast loading even with large numbers of links
+- **Guest-Friendly**: Guests feel sufficient value before naturally converting to membership
 
-### 5.2 주요 페이지
-1. **대시보드**: 개인 폴더/링크 관리 + 진행률 확인
-2. **탐색**: 공개 로드맵 브라우징 + 검색
-3. **상세 보기**: 폴더/로드맵 상세 + 댓글
-4. **프로필**: 사용자 정보 + 공개 콘텐츠
-5. **에디터**: 로드맵 생성/편집 전용 인터페이스
+### 5.2 Main Pages
+1. **Dashboard**: Personal folder/link management + progress tracking
+2. **Explore**: Browse public roadmaps + search
+3. **Detail View**: Folder/roadmap details + comments
+4. **Profile**: User information + public content
+5. **Editor**: Dedicated roadmap creation/editing interface
 
-### 5.3 컴포넌트 우선순위
+### 5.3 Component Priority
 - **High**: DnD Tree View, Link Card, Folder Card, Progress Tracker
 - **Medium**: Comment System, Like Button, Tag Selector
 - **Low**: Advanced Search, Analytics Dashboard
 
-## 6. 성공 지표 (KPI)
+## 6. Success Metrics (KPIs)
 
-### 6.1 사용자 참여도
-- DAU/MAU 비율
-- 평균 세션 시간
-- 로드맵 완주율
+### 6.1 User Engagement
+- DAU/MAU ratio
+- Average session time
+- Roadmap completion rate
 
-### 6.2 콘텐츠 품질
-- 공개 폴더 수 대비 좋아요 비율
-- 평균 링크 수 per 폴더
-- 댓글/상호작용 비율
+### 6.2 Content Quality
+- Like ratio relative to public folder count
+- Average links per folder
+- Comment/interaction ratio
 
-### 6.3 네트워크 효과
-- 사용자 간 팔로우 관계 수
-- 공유된 콘텐츠 클릭률
-- 신규 가입자의 기존 사용자 콘텐츠 소비율
+### 6.3 Network Effects
+- Number of follow relationships between users
+- Click rate of shared content
+- New user consumption of existing user content
 
-## 7. 로드맵
+## 7. Development Roadmap
 
-### 7.1 MVP (4-6주)
-- [ ] 기본 CRUD (폴더, 링크)
-- [ ] 드래그앤드롭 정렬
-- [ ] 공개/비공개 설정
-- [ ] 기본 탐색 기능
+### 7.1 MVP (4-6 weeks)
+- [ ] Basic CRUD (folders, links)
+- [ ] Drag-and-drop sorting
+- [ ] Public/private settings
+- [ ] Basic exploration features
 
-### 7.2 V1.0 (8-10주)
-- [ ] 태그 시스템
-- [ ] 좋아요/댓글
-- [ ] 사용자 프로필
-- [ ] 검색 기능
+### 7.2 V1.0 (8-10 weeks)
+- [ ] Tag system
+- [ ] Like/comment features
+- [ ] User profiles
+- [ ] Search functionality
 
-### 7.3 V1.5 (12-16주)
-- [ ] 진행률 추적
-- [ ] 팔로우 시스템
-- [ ] 추천 알고리즘
-- [ ] 모바일 최적화
+### 7.3 V1.5 (12-16 weeks)
+- [ ] Progress tracking
+- [ ] Follow system
+- [ ] Recommendation algorithm
+- [ ] Mobile optimization
 
-### 7.4 V2.0 (20-24주)
-- [ ] 고급 로드맵 기능
-- [ ] 협업 편집
-- [ ] API 개방
-- [ ] 프리미엄 기능
+### 7.4 V2.0 (20-24 weeks)
+- [ ] Advanced roadmap features
+- [ ] Collaborative editing
+- [ ] API opening
+- [ ] Premium features
 
-## 8. 위험 요소 및 대응
+## 8. Risk Factors & Mitigation
 
-### 8.1 기술적 리스크
-- **복잡한 드래그앤드롭**: 단계적 구현, 충분한 테스트
-- **성능 이슈**: 가상화, 지연 로딩, 캐싱 전략
-- **데이터 일관성**: 트랜잭션, 낙관적 업데이트
+### 8.1 Technical Risks
+- **Complex Drag-and-Drop**: Phased implementation, thorough testing
+- **Performance Issues**: Virtualization, lazy loading, caching strategies
+- **Data Consistency**: Transactions, optimistic updates
 
-### 8.2 비즈니스 리스크
-- **사용자 확보**: 초기 시드 콘텐츠, 인플루언서 협업
-- **콘텐츠 품질**: 큐레이션 시스템, 커뮤니티 모더레이션
-- **차별화**: 독특한 로드맵 기능, 탁월한 UX
+### 8.2 Business Risks
+- **User Acquisition**: Initial seed content, influencer collaboration
+- **Content Quality**: Curation system, community moderation
+- **Differentiation**: Unique roadmap features, excellent UX
 
 ---
 
-## 개발 시작하기
+## Getting Started with Development
 
-### 필수 설치 항목
+### Required Installation
 ```bash
-# Node.js 및 npm 설치 후
+# After installing Node.js and npm
 npm install
 
-# 개발 서버 실행
+# Run development server
 npm run dev
 ```
 
-### 환경 설정
-1. Supabase 프로젝트 생성
-2. `.env.local` 파일에 환경변수 설정
-3. 데이터베이스 테이블 생성
-4. 개발 시작!
+### Environment Setup
+1. Create Supabase project
+2. Set environment variables in `.env.local`
+3. Create database tables
+4. Start developing!
 
-### 주요 라이브러리
-- `@dnd-kit/core`, `@dnd-kit/sortable` - 드래그앤드롭
-- `@supabase/supabase-js` - 백엔드 연동
-- `react-i18next`, `i18next` - 다국어 지원
-- `unstated-next` - 상태 관리
+### Key Libraries
+- `@dnd-kit/core`, `@dnd-kit/sortable` - Drag and drop
+- `@supabase/supabase-js` - Backend integration
+- `react-i18next`, `i18next` - Internationalization
+- `unstated-next` - State management
 
-더 자세한 구현 방법은 각 기능별 문서를 참고하세요!
+Refer to feature-specific documentation for more detailed implementation methods!
