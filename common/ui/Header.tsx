@@ -17,7 +17,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full h-18 flex items-center px-6 border-b border-[#EBEBF0] bg-white">
+    <header className="w-full h-16 flex items-center px-6 border-b border-[#EBEBF0] bg-white">
       <div className="font-bold text-2xl text-[#1A1A33] mr-8">
         🗂️ LinkInNest
       </div>
