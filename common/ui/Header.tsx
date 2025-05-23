@@ -1,10 +1,21 @@
 "use client";
 
 import LoginModal from "../domains/LoginModal";
+import LoginContainer from "../domains/auth/LoginContainer";
 import LayoutContainer from "./LayoutContainer";
 
 export default function Header() {
   const { loginModal } = LayoutContainer.useContainer();
+  const { user, isAuthenticated, signOut, loading } = LoginContainer.useContainer();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error("로그아웃 중 오류 발생:", error);
+    }
+  };
+
   return (
     <header className="w-full h-18 flex items-center px-6 border-b border-[#EBEBF0] bg-white">
       <div className="font-bold text-2xl text-[#1A1A33] mr-8">
@@ -30,12 +41,40 @@ export default function Header() {
           />
         </div>
       </div>
-      <button
-        className="ml-8 bg-[#4A66FA] text-white rounded-md px-6 py-2 font-semibold cursor-pointer"
-        onClick={loginModal.open}
-      >
-        Login
-      </button>
+      
+      {/* 로그인 상태에 따른 UI */}
+      {loading ? (
+        <div className="ml-8 w-20 h-10 bg-gray-100 rounded-md animate-pulse" />
+      ) : isAuthenticated ? (
+        <div className="ml-8 flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            {user?.user_metadata?.avatar_url && (
+              <img 
+                src={user.user_metadata.avatar_url} 
+                alt="Profile" 
+                className="w-8 h-8 rounded-full"
+              />
+            )}
+            <span className="text-[#4D4D66] font-medium">
+              {user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'User'}
+            </span>
+          </div>
+          <button
+            onClick={handleSignOut}
+            className="bg-[#F7F7FA] text-[#4D4D66] border border-[#E5E5EB] rounded-md px-4 py-2 font-medium hover:bg-gray-100 transition-colors"
+          >
+            Logout
+          </button>
+        </div>
+      ) : (
+        <button
+          className="ml-8 bg-[#4A66FA] text-white rounded-md px-6 py-2 font-semibold cursor-pointer hover:bg-[#3D56E8] transition-colors"
+          onClick={loginModal.open}
+        >
+          Login
+        </button>
+      )}
+      
       <LoginModal />
     </header>
   );
