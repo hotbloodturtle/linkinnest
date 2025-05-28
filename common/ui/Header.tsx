@@ -1,12 +1,13 @@
 "use client";
 
-import LoginModal from "../domains/LoginModal";
-import LoginContainer from "../domains/auth/LoginContainer";
+import AuthContainer from "../domains/auth/AuthContainer";
+import LoginModal from "../domains/auth/LoginModal";
 import LayoutContainer from "./LayoutContainer";
 
 export default function Header() {
   const { loginModal } = LayoutContainer.useContainer();
-  const { user, isAuthenticated, signOut, loading } = LoginContainer.useContainer();
+  const { user, isAuthenticated, signOut, loading } =
+    AuthContainer.useContainer();
 
   const handleSignOut = async () => {
     try {
@@ -41,7 +42,7 @@ export default function Header() {
           />
         </div>
       </div>
-      
+
       {/* 로그인 상태에 따른 UI */}
       {loading ? (
         <div className="ml-8 w-20 h-10 bg-gray-100 rounded-md animate-pulse" />
@@ -49,14 +50,16 @@ export default function Header() {
         <div className="ml-8 flex items-center gap-4">
           <div className="flex items-center gap-2">
             {user?.user_metadata?.avatar_url && (
-              <img 
-                src={user.user_metadata.avatar_url} 
-                alt="Profile" 
+              <img
+                src={user.user_metadata.avatar_url}
+                alt="Profile"
                 className="w-8 h-8 rounded-full"
               />
             )}
             <span className="text-[#4D4D66] font-medium">
-              {user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'User'}
+              {user?.user_metadata?.full_name ||
+                user?.email?.split("@")[0] ||
+                "User"}
             </span>
           </div>
           <button
@@ -74,7 +77,7 @@ export default function Header() {
           Login
         </button>
       )}
-      
+
       <LoginModal />
     </header>
   );

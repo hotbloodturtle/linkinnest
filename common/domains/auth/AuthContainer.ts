@@ -1,10 +1,10 @@
 "use client";
-import { createContainer } from "unstated-next";
-import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import type { User } from "@supabase/supabase-js";
+import { useEffect, useState } from "react";
+import { createContainer } from "unstated-next";
 
-const LoginContainer = createContainer(() => {
+const AuthContainer = createContainer(() => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -73,7 +73,10 @@ const LoginContainer = createContainer(() => {
     try {
       const { error } = await supabase.from("user_profiles").upsert({
         id: user.id,
-        username: user.user_metadata.full_name || user.email?.split("@")[0] || "Unknown",
+        username:
+          user.user_metadata.full_name ||
+          user.email?.split("@")[0] ||
+          "Unknown",
         avatar_url: user.user_metadata.avatar_url,
         bio: null,
       });
@@ -103,4 +106,4 @@ const LoginContainer = createContainer(() => {
   };
 });
 
-export default LoginContainer;
+export default AuthContainer;

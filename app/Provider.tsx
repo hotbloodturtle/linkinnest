@@ -1,11 +1,11 @@
 "use client";
-import LoginContainer from "@/common/domains/auth/LoginContainer";
+import AuthContainer from "@/common/domains/auth/AuthContainer";
 import LayoutContainer from "@/common/ui/LayoutContainer";
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <LayoutContainer.Provider>
-      <LoginContainer.Provider>{children}</LoginContainer.Provider>
+      <AuthContainer.Provider>{children}</AuthContainer.Provider>
     </LayoutContainer.Provider>
   );
 };
