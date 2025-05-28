@@ -26,16 +26,17 @@ Transform personal learning journeys and interests into structured roadmaps to s
 - **Tag System**: Cross-classification through multiple tag assignment
 - **Public/Private**: Individual privacy settings for links and folders
 
-### 2.2 Roadmap Features
+### 2.2 Roadmap Features (Independent Domain)
 
-- **Step-by-step Structure**: Compose learning/experience sequences with folders and links
-- **Detailed Descriptions**: Goals and descriptions for each step
-- **Progress Tracking**: Individual completion status checking
-- **Prerequisites**: Display dependencies between steps
+- **Simple Structure**: Dedicated roadmap entity with sequential roadmap links (1-depth only)
+- **Step-by-step Learning**: Ordered progression through roadmap links
+- **Roadmap Management**: Create, edit, and organize learning pathways
+- **Progress Tracking**: Individual completion status for each roadmap step
+- **Public Sharing**: Share roadmaps with the community
 
 ### 2.3 Social Features
 
-- **Public Feed**: Browse public folders and links
+- **Public Feed**: Browse public folders, links, and roadmaps
 - **Like System**: Evaluate useful content
 - **Follow**: Subscribe to trusted curators
 - **Comments/Reviews**: Share experiences and feedback
@@ -135,14 +136,18 @@ Transform personal learning journeys and interests into structured roadmaps to s
 -- User profiles
 user_profiles (id, username, avatar_url, bio, created_at)
 
--- Folders (roadmaps/collections)
-folders (id, user_id, title, description, is_public, is_roadmap, created_at, updated_at)
+-- Folders (collections only, no roadmap functionality)
+folders (id, user_id, title, description, is_public, created_at, updated_at)
 
--- Links
-links (id, folder_id, title, url, description, sort_order, created_at)
+-- Links (can be in folders or top-level)
+links (id, user_id, folder_id, title, url, description, sort_order, created_at)
 
 -- Folder structure (nested folders)
 folder_hierarchy (parent_id, child_id, child_type, sort_order)
+
+-- Independent Roadmap Domain
+roadmaps (id, user_id, title, description, is_public, created_at, updated_at)
+roadmap_links (id, roadmap_id, title, url, description, sort_order, created_at)
 
 -- Tags
 tags (id, name, category, color)
@@ -150,7 +155,7 @@ folder_tags (folder_id, tag_id)
 link_tags (link_id, tag_id)
 
 -- Social features
-likes (user_id, item_type, item_id, created_at)
+likes (user_id, item_type, item_id, created_at) -- supports 'folder', 'link', 'roadmap'
 follows (follower_id, following_id, created_at)
 comments (id, user_id, item_type, item_id, content, created_at)
 

@@ -2,24 +2,23 @@ import { supabase } from "@/lib/supabase";
 
 export interface UserTopLevelItem {
   id: string;
-  type: "folder" | "link";
+  type: "folder" | "link" | "roadmap";
   title: string;
   description?: string | null;
   url?: string;
   is_public?: boolean | null;
-  is_roadmap?: boolean | null;
   created_at: string | null;
   sort_order?: number | null;
 }
 
 /**
- * 로그인한 사용자의 최상위 폴더와 링크를 가져옵니다
+ * 로그인한 사용자의 최상위 폴더, 링크, 로드맵을 가져옵니다
  */
 export async function getUserTopLevelItems(
   userId: string
 ): Promise<UserTopLevelItem[]> {
   try {
-    // 1. child_id 목록 먼저 조회
+    // 최상위 폴더들 가져오기 (folder_hierarchy에서 parent_id로 참조되지 않는 폴더들)
     const { data: childFolders, error: childFoldersError } = await supabase
       .from("folder_hierarchy")
       .select("child_id")
@@ -29,9 +28,9 @@ export async function getUserTopLevelItems(
       console.error("Error fetching child folders:", childFoldersError);
       throw childFoldersError;
     }
+
     const childFolderIds = (childFolders || []).map((row) => row.child_id);
 
-    // 2. 해당 id를 not in으로 사용
     let topLevelFoldersQuery = supabase
       .from("folders")
       .select("*")
@@ -41,7 +40,7 @@ export async function getUserTopLevelItems(
       topLevelFoldersQuery = topLevelFoldersQuery.not(
         "id",
         "in",
-        childFolderIds
+        `(${childFolderIds.map((id) => `'${id}'`).join(",")})`
       );
     }
 
@@ -67,7 +66,19 @@ export async function getUserTopLevelItems(
       throw linksError;
     }
 
-    // 폴더와 링크를 통합된 형태로 변환
+    // 로드맵들 가져오기
+    const { data: roadmaps, error: roadmapsError } = await supabase
+      .from("roadmaps")
+      .select("*")
+      .eq("user_id", userId)
+      .order("created_at", { ascending: false });
+
+    if (roadmapsError) {
+      console.error("Error fetching roadmaps:", roadmapsError);
+      throw roadmapsError;
+    }
+
+    // 통합된 형태로 변환
     const folders: UserTopLevelItem[] = (topLevelFolders || []).map(
       (folder) => ({
         id: folder.id,
@@ -75,7 +86,6 @@ export async function getUserTopLevelItems(
         title: folder.title,
         description: folder.description,
         is_public: folder.is_public,
-        is_roadmap: folder.is_roadmap,
         created_at: folder.created_at,
         sort_order: 0, // 폴더는 기본 정렬값 0
       })
@@ -91,11 +101,24 @@ export async function getUserTopLevelItems(
       sort_order: link.sort_order || 0,
     }));
 
-    // 폴더와 링크를 합치고 정렬 (폴더가 먼저, 그 다음 링크)
-    const allItems = [...folders, ...links].sort((a, b) => {
-      // 타입별로 먼저 정렬 (폴더 > 링크)
+    const roadmapItems: UserTopLevelItem[] = (roadmaps || []).map(
+      (roadmap) => ({
+        id: roadmap.id,
+        type: "roadmap" as const,
+        title: roadmap.title,
+        description: roadmap.description,
+        is_public: roadmap.is_public,
+        created_at: roadmap.created_at,
+        sort_order: 0, // 로드맵은 기본 정렬값 0
+      })
+    );
+
+    // 폴더, 링크, 로드맵을 합치고 정렬 (폴더 > 로드맵 > 링크 순서)
+    const allItems = [...folders, ...roadmapItems, ...links].sort((a, b) => {
+      // 타입별로 먼저 정렬 (폴더 > 로드맵 > 링크)
+      const typeOrder = { folder: 0, roadmap: 1, link: 2 };
       if (a.type !== b.type) {
-        return a.type === "folder" ? -1 : 1;
+        return typeOrder[a.type] - typeOrder[b.type];
       }
 
       // 같은 타입 내에서는 sort_order, 그 다음 created_at으로 정렬

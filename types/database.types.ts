@@ -107,7 +107,6 @@ export type Database = {
           description: string | null
           id: string
           is_public: boolean | null
-          is_roadmap: boolean | null
           title: string
           updated_at: string | null
           user_id: string
@@ -117,7 +116,6 @@ export type Database = {
           description?: string | null
           id?: string
           is_public?: boolean | null
-          is_roadmap?: boolean | null
           title: string
           updated_at?: string | null
           user_id: string
@@ -127,7 +125,6 @@ export type Database = {
           description?: string | null
           id?: string
           is_public?: boolean | null
-          is_roadmap?: boolean | null
           title?: string
           updated_at?: string | null
           user_id?: string
@@ -243,6 +240,74 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      roadmap_links: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          roadmap_id: string
+          sort_order: number | null
+          title: string
+          url: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          roadmap_id: string
+          sort_order?: number | null
+          title: string
+          url: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          roadmap_id?: string
+          sort_order?: number | null
+          title?: string
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "roadmap_links_roadmap_id_fkey"
+            columns: ["roadmap_id"]
+            isOneToOne: false
+            referencedRelation: "roadmaps"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      roadmaps: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          is_public: boolean | null
+          title: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          is_public?: boolean | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          is_public?: boolean | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
       }
       tags: {
         Row: {
